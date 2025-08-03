@@ -3,16 +3,13 @@ import BlogCard from "../components/BlogCard";
 
 const BATCH_SIZE = 6;
 
-function Home() {
-  const [allBlogs, setAllBlogs] = useState([]);
+export default function Home({ blogs }) {
   const [visibleBlogs, setVisibleBlogs] = useState([]);
   const observerRef = useRef();
 
   useEffect(() => {
-    const storedBlogs = JSON.parse(localStorage.getItem("blogs") || "[]");
-    setAllBlogs(storedBlogs);
-    setVisibleBlogs(storedBlogs.slice(0, BATCH_SIZE));
-  }, []);
+    setVisibleBlogs(blogs.slice(0, BATCH_SIZE));
+  }, [blogs]);
 
   const lastBlogRef = useCallback(
     (node) => {
@@ -24,12 +21,12 @@ function Home() {
       });
       if (node) observerRef.current.observe(node);
     },
-    [visibleBlogs, allBlogs]
+    [visibleBlogs, blogs]
   );
 
   const loadMore = () => {
     setVisibleBlogs((prev) => {
-      const next = allBlogs.slice(prev.length, prev.length + BATCH_SIZE);
+      const next = blogs.slice(prev.length, prev.length + BATCH_SIZE);
       return [...prev, ...next];
     });
   };
@@ -40,10 +37,7 @@ function Home() {
         {visibleBlogs.map((blog, index) => {
           const isLast = index === visibleBlogs.length - 1;
           return (
-            <div
-              key={blog.id}
-              ref={isLast ? lastBlogRef : null}
-            >
+            <div key={blog.id} ref={isLast ? lastBlogRef : null}>
               <BlogCard
                 id={blog.id}
                 title={blog.title}
@@ -57,5 +51,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
