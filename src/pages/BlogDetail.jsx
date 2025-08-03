@@ -1,4 +1,3 @@
-// pages/BlogDetail.jsx
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 

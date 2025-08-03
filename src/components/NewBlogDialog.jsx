@@ -19,7 +19,7 @@ export function NewBlogDialog({ onBlogAdded }) {
       author: "Anonymous",
     };
 
-    onBlogAdded?.(newBlog); // safe call
+    onBlogAdded?.(newBlog);
     setTitle("");
     setContent("");
   };

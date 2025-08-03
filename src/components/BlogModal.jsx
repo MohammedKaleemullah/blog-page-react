@@ -1,4 +1,3 @@
-// src/components/BlogModal.jsx
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import {
@@ -35,7 +34,7 @@ export default function BlogModal({ onBlogAdded, onClose }) {
     setTitle("");
     setContent("");
     setError("");
-    onClose(); // Close modal
+    onClose();
   };
 
   return (

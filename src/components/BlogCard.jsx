@@ -1,4 +1,3 @@
-// components/BlogCard.jsx
 import { Link } from "react-router-dom";
 import {
   Card,
