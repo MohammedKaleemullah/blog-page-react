@@ -42,7 +42,7 @@ export default function Home({ blogs }) {
                 id={blog.id}
                 title={blog.title}
                 content={blog.content}
-                author="Anonymous"
+                author="Kaleemullah"
               />
             </div>
           );
