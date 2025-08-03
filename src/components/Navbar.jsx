@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import BlogModal from "./BlogModal";
-import logo from "../assets/logo.webp"; // Adjust the path as necessary
+import logo from "../assets/Logo.webp"; // Adjust the path as necessary
 
 
 export default function Navbar({ onBlogAdded }) {
