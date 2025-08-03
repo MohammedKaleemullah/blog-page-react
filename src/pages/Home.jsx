@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import BlogCard from "../components/BlogCard";
 
-const BATCH_SIZE = 6;
+const BATCH_SIZE = 12 ;
 
 export default function Home({ blogs }) {
   const [visibleBlogs, setVisibleBlogs] = useState([]);
