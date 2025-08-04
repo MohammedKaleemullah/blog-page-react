@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import BlogCard from "../components/BlogCard";
 
-const BATCH_SIZE = 12 ;
+const BATCH_SIZE = 3;
 
 export default function Home({ blogs }) {
   const [visibleBlogs, setVisibleBlogs] = useState([]);
@@ -26,6 +26,10 @@ export default function Home({ blogs }) {
 
   const loadMore = () => {
     setVisibleBlogs((prev) => {
+      if (prev.length >= blogs.length) 
+          return prev; // No more blogs to load
+      console.log(`Current visible blogs: ${prev.length}, Total blogs: ${blogs.length }`);
+      console.log("Loading more blogs...");
       const next = blogs.slice(prev.length, prev.length + BATCH_SIZE);
       return [...prev, ...next];
     });
