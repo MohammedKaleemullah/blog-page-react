@@ -26,10 +26,14 @@ export default function Home({ blogs }) {
 
   const loadMore = () => {
     setVisibleBlogs((prev) => {
-      if (prev.length >= blogs.length) 
+      if (prev.length >= blogs.length) {
+          console.log("All blogs loaded");
           return prev; // No more blogs to load
-      console.log(`Current visible blogs: ${prev.length}, Total blogs: ${blogs.length }`);
-      console.log("Loading more blogs...");
+      }
+      else{
+        console.log(`Current visible blogs: ${prev.length}, Total blogs: ${blogs.length }`);
+        console.log("Loading more blogs...");
+      }
       const next = blogs.slice(prev.length, prev.length + BATCH_SIZE);
       return [...prev, ...next];
     });
