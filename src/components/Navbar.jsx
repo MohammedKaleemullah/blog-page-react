@@ -9,7 +9,7 @@ export default function Navbar({ onBlogAdded }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex justify-between items-center p-4 border-b">
+    <div className="flex justify-between items-center p-4 border-b bg-gray-300 text-gray-800">
       <div className="flex items-center">
           <img src={logo} className="h-12 w-12 mr-2" alt="Logo" />
           <div className="text-xl font-bold">React Blog</div>
